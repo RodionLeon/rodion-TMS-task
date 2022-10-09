@@ -1,3 +1,5 @@
+package lesson2;
+
 import java.util.Scanner;
 public class Association2 {
     public static void main(String[] args) {

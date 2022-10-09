@@ -1,6 +1,8 @@
+package lesson1;
+
 import java.util.Scanner;
 
-public class Main {
+public class task7 {
     public static void main(String[] args) {
         double x1,y1,x2,y2;
         Scanner in = new Scanner(System.in);

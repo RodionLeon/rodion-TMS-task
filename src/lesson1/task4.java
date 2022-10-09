@@ -1,6 +1,8 @@
+package lesson1;
+
 import java.util.Scanner;
 
-public class Main {
+public class task4 {
     public static void main(String[] args) {
         long number;
         Scanner in = new Scanner(System.in);

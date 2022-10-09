@@ -1,6 +1,8 @@
+package lesson1;
+
 import java.util.Scanner;
 
-public class Main {
+public class task2 {
     public static void main(String[] args) {
         int deegree,minutes,second;
         double Pi = 3.1415926535;
