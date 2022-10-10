@@ -17,6 +17,7 @@ public class Figures {
         this.fourthSide = fourthSide;
         this.fifthSide = fifthSide;
         this.sixthSide = sixthSide;
+        this.perimeter= perimeter( firstSide,  secondSide,  thirdSide,  fourthSide,  fifthSide,  sixthSide);
     }
     public Figures(double firstSide, double secondSide, double thirdSide, double fourthSide, double fifthSide) {
         this.firstSide = firstSide;
@@ -24,6 +25,7 @@ public class Figures {
         this.thirdSide = thirdSide;
         this.fourthSide = fourthSide;
         this.fifthSide = fifthSide;
+        this.perimeter= perimeter( firstSide,  secondSide,  thirdSide,  fourthSide,  fifthSide);
 
     }
     public Figures(double firstSide, double secondSide, double thirdSide, double fourthSide) {
@@ -31,12 +33,22 @@ public class Figures {
         this.secondSide = secondSide;
         this.thirdSide = thirdSide;
         this.fourthSide = fourthSide;
+        this.perimeter= perimeter( firstSide,  secondSide,  thirdSide,  fourthSide);
 
     }
     public Figures(double firstSide, double secondSide, double thirdSide) {
         this.firstSide = firstSide;
         this.secondSide = secondSide;
         this.thirdSide = thirdSide;
+        this.perimeter= perimeter( firstSide,  secondSide,  thirdSide);
+
+    }
+    public Figures(double firstSide) {
+        this.firstSide = firstSide;
+        this.secondSide = firstSide;
+        this.thirdSide = firstSide;
+        this.fourthSide = firstSide;
+        this.perimeter= perimeter( firstSide);
 
     }
 
@@ -99,8 +111,7 @@ public class Figures {
         this.sixthSide = sixthSide;
     }
 
-    public double perimeter (double firstSide, double secondSide, double thirdSide, double fourthSide, double fifthSide, double sixthSide){
-        double perimeter;
+    static public double perimeter (double firstSide, double secondSide, double thirdSide, double fourthSide, double fifthSide, double sixthSide){
         if(firstSide < 0 || secondSide < 0 || thirdSide < 0 || fourthSide < 0 || fifthSide < 0 || sixthSide <0 ) {
             System.out.println(" incorrect values ");
             return 0;
@@ -108,8 +119,7 @@ public class Figures {
         else
      return firstSide + secondSide + thirdSide + fourthSide +fifthSide +sixthSide ;
     }
-    public double perimeter (double firstSide, double secondSide, double thirdSide, double fourthSide, double fifthSide){
-        double perimeter;
+    static public double perimeter (double firstSide, double secondSide, double thirdSide, double fourthSide, double fifthSide){
         if(firstSide < 0 || secondSide < 0 || thirdSide < 0 || fourthSide < 0 || fifthSide < 0  ) {
             System.out.println(" incorrect values ");
             return 0;
@@ -117,8 +127,7 @@ public class Figures {
         else
             return firstSide + secondSide + thirdSide + fourthSide +fifthSide  ;
     }
-    public double perimeter (double firstSide, double secondSide, double thirdSide, double fourthSide){
-        double perimeter;
+    static public double perimeter (double firstSide, double secondSide, double thirdSide, double fourthSide){
         if(firstSide < 0 || secondSide < 0 || thirdSide < 0 || fourthSide < 0  ) {
             System.out.println(" incorrect values ");
             return 0;
@@ -126,8 +135,7 @@ public class Figures {
         else
             return firstSide + secondSide + thirdSide + fourthSide  ;
     }
-    public double perimeter (double firstSide, double secondSide, double thirdSide){
-        double perimeter;
+    static double perimeter (double firstSide, double secondSide, double thirdSide){
         if((firstSide < 0) || (secondSide < 0) || (thirdSide < 0)   ) {
             System.out.println(" incorrect values ");
             return 0;
@@ -135,8 +143,18 @@ public class Figures {
         else
             return firstSide + secondSide + thirdSide   ;
     }
-    public void perimeter(){
+    static double perimeter (double firstSide){
+        if(firstSide < 0 )  {
+            System.out.println(" incorrect values ");
+            return 0;
+        }
+        else
+            return firstSide * 4   ;
+    }
+
+    public double perimeter(){
        this.perimeter = this.firstSide + this.secondSide + this.thirdSide + this.fourthSide + this.fifthSide + this.sixthSide;
+        return this.perimeter;
     }
 
     @Override
@@ -148,6 +166,7 @@ public class Figures {
                 ", fourthSide=" + fourthSide +
                 ", fifthSide=" + fifthSide +
                 ", sixthSide=" + sixthSide +
+                ", perimeter=" + perimeter +
                 '}';
     }
 }

@@ -6,7 +6,7 @@ public class Triangle extends Figures {
     double thirdSide;
     double square;
     double perimeter;
-    String type;
+   private String type;
 
 
     public Triangle(double firstSide, double secondSide, double thirdSide) {
@@ -14,6 +14,9 @@ public class Triangle extends Figures {
         this.firstSide = firstSide;
         this.secondSide = secondSide;
         this.thirdSide = thirdSide;
+        this.perimeter = perimeter(firstSide,secondSide,thirdSide);
+        this.type = typeOfTriangle(firstSide,secondSide,thirdSide);
+        this.square = square(firstSide,secondSide,thirdSide);
     }
 
 
@@ -57,16 +60,16 @@ public class Triangle extends Figures {
         super.setThirdSide(thirdSide);
     }
 
+
+
     @Override
-    public double perimeter(double firstSide, double secondSide, double thirdSide) {
-        return super.perimeter(firstSide, secondSide, thirdSide);
-    }
-    public void perimeter(){
-        this.perimeter = this.firstSide + this.secondSide + this.thirdSide;
+    public double perimeter() {
+        super.perimeter();
+        return this.perimeter;
     }
 
     public boolean valid(){
-        if(this.firstSide + this.secondSide > this.thirdSide || this.firstSide + this.thirdSide > this.secondSide || this.secondSide + this.thirdSide > this.firstSide){
+        if((this.firstSide + this.secondSide > this.thirdSide) || (this.firstSide + this.thirdSide > this.secondSide) || (this.secondSide + this.thirdSide > this.firstSide)){
             return true;
         }
         else{
@@ -74,40 +77,39 @@ public class Triangle extends Figures {
             return false;
         }
     }
-    public double Square(double firstSide,double secondSide,double thirdSide){
-        double square;
+    public double square(double firstSide,double secondSide,double thirdSide){
         double semiPerimeter = perimeter(firstSide,secondSide,thirdSide);
         return Math.sqrt(semiPerimeter*(semiPerimeter-firstSide)*(semiPerimeter- secondSide)*(semiPerimeter-thirdSide));
 
     }
 
-    public void Square() {
-        double square;
-        double semiPerimeter = perimeter(this.firstSide,this.secondSide,this.thirdSide);
-        this.square = Math.sqrt(semiPerimeter*(semiPerimeter-this.firstSide)*(semiPerimeter- this.secondSide)*(semiPerimeter-this.thirdSide));
+    public void square() {
+        double semiPerimeter = perimeter(this.firstSide,this.secondSide,this.thirdSide)/2;
+        this.square = Math.sqrt(semiPerimeter*(semiPerimeter-this.firstSide)*(semiPerimeter - this.secondSide)*(semiPerimeter - this.thirdSide));
     }
 
-    public void Type(){
-        if((this.firstSide == this.secondSide) && (this.firstSide == this.thirdSide)){
-            this.type = "equilateral";}
-        else if((this.firstSide == this.secondSide) && (this.firstSide != this.thirdSide)
-                || ((this.firstSide == this.thirdSide) &&(this.firstSide != this.secondSide))
-                || ((this.secondSide == this.thirdSide) && (this.secondSide != this.firstSide))){
-            this.type ="isosceles";
+    public String typeOfTriangle(double firstSide,double secondSide,double thirdSide){
+        if((firstSide == secondSide) && (firstSide == thirdSide)){
+            return  "equilateral";}
+        else if(((firstSide == secondSide) && (firstSide != thirdSide))
+                || ((firstSide == thirdSide) &&(firstSide != secondSide))
+                || ((secondSide == thirdSide) && (secondSide != firstSide))){
+            return "isosceles";
         }
-        else if((Math.pow(this.firstSide,2) + Math.pow(this.secondSide,2) == Math.pow(this.thirdSide,2))
-                || (Math.pow(this.firstSide,2) + Math.pow(this.thirdSide,2) == Math.pow(this.secondSide,2))
-                || Math.pow(this.thirdSide,2) + Math.pow(this.secondSide,2) == Math.pow(this.firstSide,2)){
-            this.type = "rectangular";
+        else if((Math.pow(firstSide,2) + Math.pow(secondSide,2) == Math.pow(thirdSide,2))
+                || (Math.pow(firstSide,2) + Math.pow(thirdSide,2) == Math.pow(secondSide,2))
+                || Math.pow(thirdSide,2) + Math.pow(secondSide,2) == Math.pow(firstSide,2)){
+            return  "rectangular";
         }
         else {
-            this.type = "arbitrary";
+            return  "arbitrary";
         }
+
     }
 
     @Override
     public String toString() {
-        if (valid() == true){
+        if (valid()){
         return "Triangle{" +
                 "firstSide=" + firstSide +
                 ", secondSide=" + secondSide +
@@ -117,7 +119,9 @@ public class Triangle extends Figures {
                 ", type='" + type + '\'' +
                 '}';
     }
+        else
         return "incorrect value";
     }
+
 
 }
