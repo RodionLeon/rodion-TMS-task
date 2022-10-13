@@ -1,22 +1,23 @@
 package lesson3;
 
 public class Triangle extends Figures {
-    double firstSide;
-    double secondSide;
-    double thirdSide;
-    double square;
-    double perimeter;
-   private String type;
+    private double firstSide;
+    private double secondSide;
+    private double thirdSide;
+    private String type;
 
+    public Triangle() {
+
+    }
 
     public Triangle(double firstSide, double secondSide, double thirdSide) {
-        super(firstSide,secondSide,thirdSide);
         this.firstSide = firstSide;
         this.secondSide = secondSide;
         this.thirdSide = thirdSide;
-        this.perimeter = perimeter(firstSide,secondSide,thirdSide);
-        this.type = typeOfTriangle(firstSide,secondSide,thirdSide);
-        this.square = square(firstSide,secondSide,thirdSide);
+        this.perimeter = perimeter(firstSide, secondSide, thirdSide);
+        this.type = typeOfTriangle(firstSide, secondSide, thirdSide);
+        this.square = square(firstSide, secondSide, thirdSide);
+        this.name = "triangle";
     }
 
 
@@ -30,98 +31,84 @@ public class Triangle extends Figures {
         return super.equals(obj);
     }
 
-    @Override
     public double getFirstSide() {
-        return super.getFirstSide();
+        return firstSide;
     }
 
-    @Override
     public void setFirstSide(double firstSide) {
-        super.setFirstSide(firstSide);
+        this.firstSide = firstSide;
     }
 
-    @Override
     public double getSecondSide() {
-        return super.getSecondSide();
+        return secondSide;
     }
 
-    @Override
     public void setSecondSide(double secondSide) {
-        super.setSecondSide(secondSide);
+        this.secondSide = secondSide;
     }
 
-    @Override
     public double getThirdSide() {
-        return super.getThirdSide();
+        return thirdSide;
     }
 
-    @Override
     public void setThirdSide(double thirdSide) {
-        super.setThirdSide(thirdSide);
+        this.thirdSide = thirdSide;
     }
 
-
-
-    @Override
-    public double perimeter() {
-        super.perimeter();
+    public double perimeter(double firstSide, double secondSide, double thirdSide) {
+        this.perimeter = firstSide + secondSide + thirdSide;
         return this.perimeter;
     }
 
-    public boolean valid(){
-        if((this.firstSide + this.secondSide > this.thirdSide) || (this.firstSide + this.thirdSide > this.secondSide) || (this.secondSide + this.thirdSide > this.firstSide)){
+    private boolean valid() {
+        if ((this.firstSide + this.secondSide > this.thirdSide) || (this.firstSide + this.thirdSide > this.secondSide) || (this.secondSide + this.thirdSide > this.firstSide)) {
             return true;
-        }
-        else{
+        } else {
             System.out.println("Triangle are not a valid ");
             return false;
         }
     }
-    public double square(double firstSide,double secondSide,double thirdSide){
-        double semiPerimeter = perimeter(firstSide,secondSide,thirdSide);
-        return Math.sqrt(semiPerimeter*(semiPerimeter-firstSide)*(semiPerimeter- secondSide)*(semiPerimeter-thirdSide));
+
+    public double square(double firstSide, double secondSide, double thirdSide) {
+        double semiPerimeter = perimeter(firstSide, secondSide, thirdSide);
+        return Math.sqrt(semiPerimeter * (semiPerimeter - firstSide) * (semiPerimeter - secondSide) * (semiPerimeter - thirdSide));
 
     }
 
     public void square() {
-        double semiPerimeter = perimeter(this.firstSide,this.secondSide,this.thirdSide)/2;
-        this.square = Math.sqrt(semiPerimeter*(semiPerimeter-this.firstSide)*(semiPerimeter - this.secondSide)*(semiPerimeter - this.thirdSide));
+        double semiPerimeter = perimeter(this.firstSide, this.secondSide, this.thirdSide) / 2;
+        this.square = Math.sqrt(semiPerimeter * (semiPerimeter - this.firstSide) * (semiPerimeter - this.secondSide) * (semiPerimeter - this.thirdSide));
     }
 
-    public String typeOfTriangle(double firstSide,double secondSide,double thirdSide){
-        if((firstSide == secondSide) && (firstSide == thirdSide)){
-            return  "equilateral";}
-        else if(((firstSide == secondSide) && (firstSide != thirdSide))
-                || ((firstSide == thirdSide) &&(firstSide != secondSide))
-                || ((secondSide == thirdSide) && (secondSide != firstSide))){
+    public String typeOfTriangle(double firstSide, double secondSide, double thirdSide) {
+        if ((firstSide == secondSide) && (firstSide == thirdSide)) {
+            return "equilateral";
+        } else if (((firstSide == secondSide) && (firstSide != thirdSide))
+                || ((firstSide == thirdSide) && (firstSide != secondSide))
+                || ((secondSide == thirdSide) && (secondSide != firstSide))) {
             return "isosceles";
-        }
-        else if((Math.pow(firstSide,2) + Math.pow(secondSide,2) == Math.pow(thirdSide,2))
-                || (Math.pow(firstSide,2) + Math.pow(thirdSide,2) == Math.pow(secondSide,2))
-                || Math.pow(thirdSide,2) + Math.pow(secondSide,2) == Math.pow(firstSide,2)){
-            return  "rectangular";
-        }
-        else {
-            return  "arbitrary";
+        } else if ((Math.pow(firstSide, 2) + Math.pow(secondSide, 2) == Math.pow(thirdSide, 2))
+                || (Math.pow(firstSide, 2) + Math.pow(thirdSide, 2) == Math.pow(secondSide, 2))
+                || Math.pow(thirdSide, 2) + Math.pow(secondSide, 2) == Math.pow(firstSide, 2)) {
+            return "rectangular";
+        } else {
+            return "arbitrary";
         }
 
     }
 
     @Override
     public String toString() {
-        if (valid()){
-        return "Triangle{" +
-                "firstSide=" + firstSide +
-                ", secondSide=" + secondSide +
-                ", thirdSide=" + thirdSide +
-                ", square=" + square +
-                ", perimeter=" + perimeter +
-                ", type='" + type + '\'' +
-                '}';
+        if (valid()) {
+            return "Triangle{" +
+                    "firstSide=" + firstSide +
+                    ", secondSide=" + secondSide +
+                    ", thirdSide=" + thirdSide +
+                    ", type='" + type + '\'' +
+                    ", name='" + name + '\'' +
+                    ", perimeter=" + perimeter +
+                    ", square=" + square +
+                    '}';
+        } else return "incorrect value";
     }
-        else
-        return "incorrect value";
-    }
-
-
 }

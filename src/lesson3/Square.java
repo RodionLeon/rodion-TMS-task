@@ -3,67 +3,68 @@ package lesson3;
 import java.util.Objects;
 
 public class Square extends Figures {
-    double firstSide;
-    double secondSide;
-    double thirdSide;
-    double fourthSide;
-    double perimeter;
-    double square;
+    private double firstSide;
+    private double secondSide;
+    private double thirdSide;
+    private double fourthSide;
+
+    public Square() {
+
+    }
+
     public Square(double firstSide) {
-        super(firstSide);
         this.firstSide = firstSide;
         this.secondSide = firstSide;
         this.thirdSide = firstSide;
         this.fourthSide = firstSide;
         this.perimeter = perimeter(firstSide);
-        this.square =square(firstSide);
+        this.square = square(firstSide);
+        this.name = "Square";
 
     }
-    public void square(){
-        this.square = this.firstSide * this.firstSide;
-    }
-    public double square(double firstSide){
-        return firstSide * firstSide;
-    }
 
-    @Override
     public double getFirstSide() {
         return firstSide;
     }
 
-    @Override
     public void setFirstSide(double firstSide) {
         this.firstSide = firstSide;
     }
 
-    @Override
     public double getSecondSide() {
         return secondSide;
     }
 
-    @Override
     public void setSecondSide(double secondSide) {
         this.secondSide = secondSide;
     }
 
-    @Override
     public double getThirdSide() {
         return thirdSide;
     }
 
-    @Override
     public void setThirdSide(double thirdSide) {
         this.thirdSide = thirdSide;
     }
 
-    @Override
     public double getFourthSide() {
         return fourthSide;
     }
 
-    @Override
     public void setFourthSide(double fourthSide) {
         this.fourthSide = fourthSide;
+    }
+
+    public void square() {
+        this.square = this.firstSide * this.firstSide;
+    }
+
+    final double square(double firstSide) {
+        return firstSide * firstSide;
+    }
+
+    public double perimeter(double firstSide) {
+        return firstSide * 4;
     }
 
     @Override
@@ -87,6 +88,7 @@ public class Square extends Figures {
                 ", secondSide=" + secondSide +
                 ", thirdSide=" + thirdSide +
                 ", fourthSide=" + fourthSide +
+                ", name='" + name + '\'' +
                 ", perimeter=" + perimeter +
                 ", square=" + square +
                 '}';
