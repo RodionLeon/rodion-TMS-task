@@ -71,14 +71,13 @@ public class Square extends Figures {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-        Square square1 = (Square) o;
-        return Double.compare(square1.firstSide, firstSide) == 0 && Double.compare(square1.secondSide, secondSide) == 0 && Double.compare(square1.thirdSide, thirdSide) == 0 && Double.compare(square1.fourthSide, fourthSide) == 0 && Double.compare(square1.perimeter, perimeter) == 0 && Double.compare(square1.square, square) == 0;
+        Square square = (Square) o;
+        return Double.compare(square.firstSide, firstSide) == 0 && Double.compare(square.secondSide, secondSide) == 0 && Double.compare(square.thirdSide, thirdSide) == 0 && Double.compare(square.fourthSide, fourthSide) == 0;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), firstSide, secondSide, thirdSide, fourthSide, perimeter, square);
+        return Objects.hash(firstSide, secondSide, thirdSide, fourthSide);
     }
 
     @Override

@@ -1,5 +1,7 @@
 package lesson3;
 
+import java.util.Objects;
+
 public class Triangle extends Figures {
     private double firstSide;
     private double secondSide;
@@ -21,15 +23,7 @@ public class Triangle extends Figures {
     }
 
 
-    @Override
-    public int hashCode() {
-        return super.hashCode();
-    }
 
-    @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
-    }
 
     public double getFirstSide() {
         return firstSide;
@@ -95,6 +89,19 @@ public class Triangle extends Figures {
             return "arbitrary";
         }
 
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Triangle triangle = (Triangle) o;
+        return Double.compare(triangle.firstSide, firstSide) == 0 && Double.compare(triangle.secondSide, secondSide) == 0 && Double.compare(triangle.thirdSide, thirdSide) == 0 && Objects.equals(type, triangle.type);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstSide, secondSide, thirdSide, type);
     }
 
     @Override

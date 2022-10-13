@@ -1,9 +1,9 @@
 package lesson3;
 
 abstract class Figures {
-    String name;
-    double perimeter;
-    double square;
+    protected String name;
+    protected double perimeter;
+    protected double square;
 
     public Figures() {
 
@@ -15,15 +15,7 @@ abstract class Figures {
         this.square = square;
     }
 
-    @Override
-    public int hashCode() {
-        return super.hashCode();
-    }
 
-    @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
-    }
 
 
 }
