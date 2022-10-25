@@ -11,9 +11,6 @@ public class CollectionTask2 {
         List list = new ArrayList<>(List.of(text));
         Set res = new HashSet<>(list);
         System.out.println(res);
-
-
-
     }
 
 
